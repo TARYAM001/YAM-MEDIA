@@ -16,7 +16,8 @@ const SLOTS = [
   { label: 'Soirée',  emoji: '🌆', icon: Sunset,  hour: '18:00', index: 2 },
   { label: 'Nuit',    emoji: '🌙', icon: Moon,    hour: '21:00', index: 3 },
 ];
-
+const { data: igPosts } = useSWR(...)
+const { data: igStatus } = useSWR(...)
 export default function DashboardPage() {
   const [isLoggedIn, setIsLoggedIn]   = useState(false);
   const [loginForm, setLoginForm]     = useState({ email: '', password: '' });
