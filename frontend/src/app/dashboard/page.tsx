@@ -41,12 +41,12 @@ export default function DashboardPage() {
 
   const { data: igPosts, mutate: mutateIg } = useSWR(
     isLoggedIn ? 'ig-posts' : null,
-    () => api.getInstagramPosts()
+    () => api.InstagramPosts()
   );
 
   const { data: igStatus } = useSWR(
     isLoggedIn ? 'ig-status' : null,
-    () => api.getInstagramStatus()
+    () => api.InstagramStatus()
   );
 
   async function handleLogin(e: React.FormEvent) {
