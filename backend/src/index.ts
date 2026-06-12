@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
-
+import instagramRoutes from './routes/instagram';
 import { testConnection } from './config/database';
 import authRoutes    from './routes/auth';
 import newsRoutes    from './routes/news';
@@ -78,7 +78,7 @@ app.use('/api/news',                    newsRoutes);
 app.use('/api/collect',                 collectRoutes);
 app.use('/api/stats',                   statsRoutes);
 app.use('/api/chatbot', chatbotLimiter, chatbotRoutes);
-
+app.use('/api/instagram', instagramRoutes);
 app.use((_req, res) => res.status(404).json({ error: 'Route non trouvée' }));
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error('[Error]', err.message);
